@@ -1,0 +1,521 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DevSystems | Portfolio Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "outline": "#86939a",
+                        "tertiary-fixed-dim": "#b7c4ff",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#5400cc",
+                        "on-secondary-fixed": "#22005d",
+                        "tertiary-container": "#a7b6f6",
+                        "secondary-container": "#5e00e4",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#cfbdff",
+                        "on-primary-container": "#005068",
+                        "surface-variant": "#353534",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#004d64",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#3a3939",
+                        "primary-fixed-dim": "#68d3ff",
+                        "on-tertiary-container": "#37467e",
+                        "error": "#ffb4ab",
+                        "primary-container": "#00c8ff",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#bcc8d0",
+                        "surface-container-highest": "#353534",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#cfbdff",
+                        "tertiary-fixed": "#dce1ff",
+                        "on-background": "#e5e2e1",
+                        "outline-variant": "#3c484f",
+                        "on-tertiary-fixed-variant": "#34437c",
+                        "on-error": "#690005",
+                        "background": "#131313",
+                        "inverse-primary": "#006684",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#99deff",
+                        "on-tertiary": "#1c2c64",
+                        "surface-container": "#201f1f",
+                        "surface-tint": "#68d3ff",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary": "#3a0093",
+                        "on-primary": "#003546",
+                        "on-primary-fixed": "#001f2a",
+                        "tertiary": "#cad3ff",
+                        "secondary-fixed": "#e9ddff",
+                        "on-tertiary-fixed": "#02164e",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#cbb8ff",
+                        "primary-fixed": "#bee9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1200px",
+                        "stack-sm": "12px",
+                        "section-padding": "80px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "code": ["monospace"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "code": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #090909;
+            color: #e5e2e1;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(7, 26, 82, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-cyan:hover {
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+        }
+        .neon-text-cyan {
+            text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 0.75rem;
+            background: linear-gradient(to bottom right, #00C8FF, #7A3CFF);
+            padding: 1px;
+        }
+        .gradient-border > div {
+            background: #131313;
+            border-radius: 0.75rem;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary">
+<nav class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-white/10 shadow-[0_0_20px_rgba(104,211,255,0.1)]" id="top-nav">
+<div class="flex justify-between items-center px-6 md:px-16 h-20 w-full max-w-container-max-width mx-auto">
+<a class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter" href="#">DevSystems</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#sobre">Sobre</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#habilidades">Habilidades</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#projetos">Projetos</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#timeline">Timeline</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#estatisticas">Estatísticas</a>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold hover:scale-105 transition-transform active:scale-95" href="#contato">Contato</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090909]/80 to-[#090909]"></div>
+<div class="w-full h-full" data-alt="A cinematic, high-tech background image representing artificial intelligence and programming. It features abstract glowing blue and purple neural network lines, floating binary code, and a dark, moody atmosphere with a deep obsidian finish. The lighting is dramatic, with vibrant neon highlights reflecting off sleek, dark surfaces, creating a professional and futuristic student developer command center vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsJlMZfRzIpJM1W7tabaW2cDjVIevTCebnekBPV7rCQzxUB-eT595fsAhBiZeUcNt49CmsniheumWWWw2dj1npmCv14bRguZKXTlu2d1c44hsW6HNXqWaCEQW_U1Qej3DkcYanWAw06cLOjeVS-e5-J6eJkLut3ic06KGpOKpShyEFn_TLlWK04eVBn2ZJAfDnNE4fqR69QiajIvpFJHk4myv-cNSvQJdUlfuTNeS4eXA0YvcqgVRbomalGBDE9dT00OGnFwOl11b7')"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-4xl">
+<h1 class="font-display-lg text-display-lg md:text-[64px] mb-6 leading-tight tracking-tighter reveal active">🚀 Ivan de Souza Andrade</h1>
+<p class="text-on-surface-variant font-headline-lg text-xl md:text-2xl mb-10 reveal active delay-200">Bem-vindo ao meu portfólio. Sou apaixonado por tecnologia, desenvolvimento web, Python e Inteligência Artificial.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center items-center reveal active delay-400">
+<a class="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-primary-container to-secondary-container text-white font-bold rounded-xl shadow-lg hover:shadow-primary-container/20 transition-all hover:scale-105 active:scale-95" href="#projetos">
+                        Conheça meus projetos
+                    </a>
+<a class="w-full md:w-auto px-8 py-4 glass-panel border-primary/30 text-primary font-bold rounded-xl hover:bg-primary/10 transition-all hover:scale-105 active:scale-95" href="#contato">
+                        Entrar em contato
+                    </a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+<span class="material-symbols-outlined text-primary text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Sobre Mim Section -->
+<section class="py-section-padding px-6 md:px-16 max-w-container-max-width mx-auto" id="sobre">
+<div class="grid md:grid-cols-2 gap-stack-lg items-center">
+<div class="reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">person</span> Sobre Mim
+                    </h2>
+<div class="space-y-4 text-on-surface-variant text-lg leading-relaxed">
+<p class="">
+                            Minha jornada na tecnologia começou com uma curiosidade insaciável sobre como as coisas funcionam sob o capô. Como estudante no SENAI, mergulhei profundamente no ecossistema do desenvolvimento de sistemas, onde encontrei minha verdadeira paixão: a intersecção entre código e Inteligência Artificial.
+                        </p>
+<p class="">
+                            Acredito que a programação é uma forma de arte técnica, onde cada linha de código contribui para uma arquitetura maior que resolve problemas do mundo real. Estou constantemente explorando novas frameworks e integrando IA para criar aplicações mais inteligentes e eficientes.
+                        </p>
+</div>
+</div>
+<div class="relative reveal delay-200 active">
+<div class="gradient-border p-1 animate-float">
+<div class="overflow-hidden h-[400px] w-full">
+<img class="w-full h-full object-cover" data-alt="A high-quality studio portrait illustration of a focused young developer in a dark room. The subject is surrounded by multiple translucent glass holographic screens displaying complex code and data visualizations in cyan and purple. The lighting is moody, with a strong rim light from the screens, emphasizing a professional, futuristic, and highly technical developer aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0mj-FScMfOdBFLo9J953pIpqSU050b9OQfGLH0MYsxZoB-IkLJVPm3QN5iiZEu0XsiGIbmqpX9S17We7T6FVj_IHQFbj74XlhPfmedFDVjatl78Sg8Zsde6X3RepxW1my8WA6erG4KPOb6srzUBs-DlM1EQJlw9lG7UIpiM1igt8OAr4k0WuF0JakqbT4ta-dw8mqPGU1s3_9XRqTwcW5WYT3s7VNdMl3ueKIMDGvWcUIYSPCg3YMMjeY2kk3smVAXgbYPCS03-bB">
+</div>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 blur-3xl rounded-full"></div>
+<div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary/20 blur-3xl rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Habilidades Section -->
+<section class="py-section-padding bg-surface-container-lowest" id="habilidades">
+<div class="px-6 md:px-16 max-w-container-max-width mx-auto">
+<div class="text-center mb-16 reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Hard Skills</h2>
+<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Skill Card Template -->
+<script>
+                        const skills = [
+                            { name: 'HTML5', icon: 'html', level: 90 },
+                            { name: 'CSS3', icon: 'css', level: 85 },
+                            { name: 'JavaScript', icon: 'javascript', level: 80 },
+                            { name: 'Python', icon: 'terminal', level: 75 },
+                            { name: 'Git', icon: 'commit', level: 85 },
+                            { name: 'GitHub', icon: 'hub', level: 80 },
+                            { name: 'SQL', icon: 'database', level: 70 },
+                            { name: 'IA Integrations', icon: 'psychology', level: 65 }
+                        ];
+                    </script>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal border-l-4 border-l-primary active">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">html</span>
+<h3 class="font-bold text-xl mb-4">HTML5</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-100 border-l-4 border-l-secondary active">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">css</span>
+<h3 class="font-bold text-xl mb-4">CSS3</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-200 border-l-4 border-l-primary active">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">javascript</span>
+<h3 class="font-bold text-xl mb-4">JavaScript</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-300 border-l-4 border-l-secondary active">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">terminal</span>
+<h3 class="font-bold text-xl mb-4">Python</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal border-l-4 border-l-primary active">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">commit</span>
+<h3 class="font-bold text-xl mb-4">Git</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-100 border-l-4 border-l-secondary active">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">hub</span>
+<h3 class="font-bold text-xl mb-4">GitHub</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 80%"></div>
+</div>
+</div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-300 border-l-4 border-l-secondary"><span class="material-symbols-outlined text-secondary text-4xl mb-4">monitoring</span><h3 class="font-bold text-xl mb-4">Streamlit</h3><div class="w-full bg-white/10 h-2 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full" style="width: 75%"></div></div></div>
+<div class="skill-card glass-panel p-6 rounded-xl hover:scale-105 transition-transform duration-300 reveal delay-300 border-l-4 border-l-secondary active">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">psychology</span>
+<h3 class="font-bold text-xl mb-4">IA Integrations</h3>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projetos Section (Bento-style Grid) -->
+<section class="py-section-padding px-6 md:px-16 max-w-container-max-width mx-auto" id="projetos">
+<div class="flex justify-between items-end mb-12 reveal active">
+<div>
+<p class="text-primary font-label-caps tracking-widest mb-2">PORTFÓLIO</p>
+<h2 class="font-headline-lg text-headline-lg">Projetos em Destaque</h2>
+</div>
+<div class="hidden md:block">
+<p class="text-on-surface-variant max-w-xs text-right">Uma seleção dos meus melhores trabalhos técnicos e experimentais.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+<!-- Project 1 (Large) -->
+<div class="md:col-span-4 md:row-span-1 glass-panel rounded-2xl group overflow-hidden relative reveal active">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="A vibrant digital screenshot of a modern Snake Game reimagined with cyber aesthetics. The game board glows with neon green and cyan neon lines on a dark grid, with futuristic particle effects and a sleek user interface showing high scores and level progression." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvPjitmQdLmTTjhVVBPBKI47TzoLNvTej9axN40JpbSsegH_nfE5pE0DsqO6pF4IrYyw25bPPGVkXbwrLDjp1Kk68tOHY6M5d4JQ4HYZTlFCtvzwW3Ir_xMY6BgbXzI9Y16NVWHTLWsFRFg5PxGZm38-B-H398fbbcIjjTOTmbFgsE8IenHbDDh_-urAOq6Op5cRgHozim3ZBbey2ED7h_qLc859jY5ZdY2OsAwDntREkqx1WTUUnErDI0Imwy4bPBLfedA1W38UAY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full"><div class="flex gap-2 mb-4"><span class="bg-primary/20 text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/30">JS/HTML5</span></div><h3 class="font-headline-lg text-2xl mb-2">Landing Page Snake Game</h3><p class="text-on-surface-variant mb-6 max-w-md">Projeto desenvolvido em HTML, CSS e JavaScript.</p><div class="flex gap-4"><button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:brightness-110"><span class="material-symbols-outlined text-sm">visibility</span> Visualizar</button><button class="glass-panel text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-white/10"><span class="material-symbols-outlined text-sm">code</span> GitHub</button></div></div>
+</div>
+<!-- Project 2 -->
+<div class="md:col-span-2 md:row-span-1 glass-panel rounded-2xl group overflow-hidden relative reveal delay-100 active">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 opacity-50" data-alt="A clean and professional dashboard UI for an AI-powered chatbot. The interface features a dark mode design with vibrant data visualizations, a chat window with glowing speech bubbles, and a sidebar for settings and analytics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDPBnoKSlHwfH_2E7CktDR5uNELgHl0nnIRTH7NYUZ0wB8Xouqe1MBEMnn1JYB1O4P-95U5S6aWn4p12J4PPxwWuniPOXVfe4VBweDkDJame_t67YaVKRrt_2MuvglO5SVIFvcNXu4PUx8jciWwxwrrjJ57xFGdxJ8yvmcq2k586oS96pTaIJYgBMJHeCh4NOg6KQnmPcZ3qL0DHIftdh7TzHSyC61hhAB4mDvvrJMivNNn3vyobWv5Gbf5QRVIheLG-3Hg05Bg0_VJ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#090909] to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-bold text-xl mb-1">Chatbot IA</h3>
+<p class="text-sm text-on-surface-variant mb-4">Assistente desenvolvido utilizando Streamlit e IA.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group-hover:translate-x-2 transition-transform">
+                            Ver Projeto <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="md:col-span-2 md:row-span-1 glass-panel rounded-2xl group overflow-hidden relative reveal delay-200 active">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 opacity-50" data-alt="A sleek and modern user registration system interface. The UI features elegant form fields with glowing focus states, a secure login button, and a clean layout with dark blue and purple gradients." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4ejw1nQ24KTxelt3joh_q0v1ZJaBqgHwoFZ_qZWcYlSi49YOw3asVdAZogdvuod_TDJj2yCkNoO1GQAZEDJS7YKXztVfMrKl2z-UOZfrAStx7tweGokErO1KQpCgcOcwLIcpgfT7TLvfPG-Nqdcbs8Uxpiy-DWYerLezcy-tWQE5gV6LUVXM_xAPP0WDXJG_a75P0SQbhxovubkKfF8CB5DbSORNzMPYyHFKE5nkdV1LjfL7QP4mC0hPJMVxKEW5HhNaX0R2GT6FV')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#090909] to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-bold text-xl mb-1">Sistema de Cadastro</h3>
+<p class="text-sm text-on-surface-variant mb-4">Aplicação em Python para gerenciamento de dados.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 group-hover:translate-x-2 transition-transform">
+                            Ver Projeto <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 4 (Large) -->
+<div class="md:col-span-4 md:row-span-1 glass-panel rounded-2xl group overflow-hidden relative reveal delay-300 active">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="A high-performance Python API architecture visualization. The image displays a complex network of nodes and connections representing data flow, with vibrant light trails in cyan and purple connecting various modules like databases, cloud services, and endpoints." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5l5Gw6XIZx3D8QY_t7NbLCd-7ycd8htm9z_d86QE-KIeGNuh7eywLBraoXt81QQD6EV_dTgkmn63NVvwiGVSmV_XOZjs_g9UJ1A2EpHLkeQxbcoufhakoxblIzG0MOEnuvBvj22-XK4jyUu3D2TgtdBjY0Dim1tS6-S6PkOO8n0u42hjOaf583Ja8VFIcEFgOMh1oa0VYAFf1qq3-YcVl81pI6IC-Y2hnDIj3sM5LMRUNriF42TI-P8Eeiv8I0hwWnyC7klljWCs7')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#090909] to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8"><h3 class="font-headline-lg text-2xl mb-2">Dashboard</h3><p class="text-on-surface-variant mb-6 max-w-md">Dashboard interativo para análise de informações.</p><div class="flex gap-4"><button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:brightness-110"><span class="material-symbols-outlined text-sm">rocket_launch</span> Explorar</button></div></div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="py-section-padding bg-surface-container-low" id="timeline">
+<div class="px-6 md:px-16 max-w-3xl mx-auto">
+<div class="text-center mb-16 reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Minha Jornada</h2>
+<p class="text-on-surface-variant">O caminho percorrido até agora.</p>
+</div>
+<div class="relative border-l-2 border-primary/30 ml-4 md:ml-0 md:left-1/2">
+<!-- Timeline Item -->
+<div class="mb-12 relative">
+<div class="absolute -left-[9px] md:-left-[9px] top-0 w-4 h-4 bg-primary rounded-full shadow-[0_0_15px_rgba(0,200,255,0.8)]"></div>
+<div class="ml-10 md:ml-0 md:w-1/2 md:pr-12 md:text-right reveal active">
+<span class="text-primary font-bold text-2xl">2025</span>
+<h3 class="font-bold text-xl mt-2">Início dos Estudos no SENAI</h3>
+<p class="text-on-surface-variant mt-2">Início da jornada formal em Desenvolvimento de Sistemas, focando em lógica de programação e arquitetura.</p>
+</div>
+</div>
+<div class="mb-12 relative">
+<div class="absolute -left-[9px] top-0 w-4 h-4 bg-secondary rounded-full shadow-[0_0_15px_rgba(122,60,255,0.8)]"></div>
+<div class="ml-10 md:ml-0 md:w-1/2 md:translate-x-[100%] md:pl-12 reveal delay-200 active">
+<span class="text-secondary font-bold text-2xl">2025+</span>
+<h3 class="font-bold text-xl mt-2">Exploração de IA</h3>
+<p class="text-on-surface-variant mt-2">Integração de modelos de linguagem e ferramentas de IA generativa em projetos práticos.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Estatísticas Section -->
+<section class="py-section-padding px-6 md:px-16 bg-[#090909]" id="estatisticas">
+<div class="max-w-container-max-width mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center reveal active">
+<p class="text-primary text-5xl font-extrabold mb-2" data-target="15">15</p>
+<p class="text-on-surface-variant font-label-caps">Projetos</p>
+</div>
+<div class="text-center reveal delay-100 active">
+<p class="text-primary text-5xl font-extrabold mb-2" data-target="8">8</p>
+<p class="text-on-surface-variant font-label-caps">Cursos</p>
+</div>
+<div class="text-center reveal delay-200 active">
+<p class="text-primary text-5xl font-extrabold mb-2" data-target="500">500+</p>
+<p class="text-on-surface-variant font-label-caps">Horas de Estudo</p>
+</div>
+<div class="text-center reveal delay-300 active">
+<p class="text-primary text-5xl font-extrabold mb-2" data-target="10">10</p>
+<p class="text-on-surface-variant font-label-caps">Tecnologias</p>
+</div>
+</div>
+</section>
+<!-- Contato Section -->
+<section class="py-section-padding px-6 md:px-16 max-w-container-max-width mx-auto" id="contato">
+<div class="grid md:grid-cols-2 gap-16">
+<div class="reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Vamos Conversar?</h2>
+<p class="text-on-surface-variant mb-10 text-lg">Estou sempre aberto a novas oportunidades, colaborações ou apenas um café virtual para falar sobre tecnologia.</p>
+<div class="space-y-6">
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">chat</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant">WhatsApp</p>
+<p class="font-bold">+55 (11) 99999-9999</p>
+</div>
+</a>
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant">Email</p>
+<p class="font-bold">contato@devsystems.com</p>
+</div>
+</a>
+<a class="flex items-center gap-4 group" href="#">
+<div class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">link</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant">LinkedIn</p>
+<p class="font-bold">linkedin.com/in/devsystems</p>
+</div>
+</a>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-2xl reveal delay-200 active">
+<form class="space-y-6" id="contact-form">
+<div>
+<label class="block text-sm font-bold mb-2 text-primary">Nome</label>
+<input class="w-full bg-[#131313] border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary transition-all px-4 py-3" placeholder="Seu nome" type="text">
+</div>
+<div>
+<label class="block text-sm font-bold mb-2 text-primary">Email</label>
+<input class="w-full bg-[#131313] border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary transition-all px-4 py-3" placeholder="seu@email.com" type="email">
+</div>
+<div>
+<label class="block text-sm font-bold mb-2 text-primary">Mensagem</label>
+<textarea class="w-full bg-[#131313] border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary transition-all px-4 py-3" placeholder="Como posso ajudar?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-lg hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-container/20" type="submit">
+                            Enviar mensagem
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-10 bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-6 md:px-16 gap-gutter max-w-container-max-width mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">Ivan de Souza Andrade</span>
+<p class="text-on-surface-variant text-sm">© 2026 - Ivan de Souza Andrade</p>
+</div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" href="#">WhatsApp</a>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Voltar ao topo</button>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Statistics Counter Animation
+        const statsSection = document.getElementById('estatisticas');
+        const counters = document.querySelectorAll('[data-target]');
+        let countStarted = false;
+
+        function startCount() {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target + (target > 50 ? '+' : '');
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !countStarted) {
+                countStarted = true;
+                startCount();
+            }
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('top-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+
+
+</body></html>
